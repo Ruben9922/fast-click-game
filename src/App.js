@@ -37,6 +37,11 @@ class App extends Component {
     this.stopTimer();
   }
 
+  static handleButtonKeyPress(event) {
+    // Prevent increasing score by holding down enter/space key on main button
+    event.preventDefault();
+  }
+
   startTimer() {
     if (!this.timerRunning) {
       this.timerRunning = true;
@@ -78,7 +83,8 @@ class App extends Component {
         </div>
         <div className="row text-center">
           <button type="button" className="btn btn-primary btn-lg" onClick={this.handleClick}
-                  disabled={this.state.timeLeft <= 0}>Click here!
+                  onKeyDown={App.handleButtonKeyPress} disabled={this.state.timeLeft <= 0}>
+            Click here!
           </button>
           <button type="button" className="btn btn-default btn-lg" onClick={this.handleResetClick}>Reset</button>
         </div>
