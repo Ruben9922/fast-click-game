@@ -5,7 +5,7 @@ class Timer extends Component {
     return (
       <div className="text-center">
         Time left<br/>
-        <span className="bigger">10</span>
+        <span className="bigger">{this.props.timeLeft}</span>
       </div>
     );
   }
