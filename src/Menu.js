@@ -9,6 +9,7 @@ class Menu extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -17,12 +18,17 @@ class Menu extends Component {
     })
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.onSwitch(this.state.time);
+  }
+
   render() {
     return (
       <div className="row">
         <div className="col-sm-6 col-sm-offset-3">
           <p className="text-center">Choose whether the game should last 10, 20 or 30 seconds:</p>
-          <form className="form-horizontal">
+          <form className="form-horizontal" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label htmlFor="time" className="col-sm-4 control-label">Time (seconds)</label>
               <div className="col-sm-8">
@@ -35,7 +41,7 @@ class Menu extends Component {
             </div>
             <div className="form-group">
               <div className="col-sm-offset-4 col-sm-8">
-                <button type="button" className="btn btn-primary">Start</button>
+                <button type="submit" className="btn btn-primary">Start</button>
               </div>
             </div>
           </form>

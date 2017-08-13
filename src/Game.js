@@ -7,16 +7,16 @@ class Game extends Component {
   constructor(props) {
     super(props);
 
-    this.totalTime = 10;
     this.timerRunning = false;
 
     this.state = {
       score: 0,
-      timeLeft: this.totalTime
+      timeLeft: this.props.totalTime
     };
 
     this.handleClick = this.handleClick.bind(this);
     this.handleResetClick = this.handleResetClick.bind(this);
+    this.render = this.render.bind(this);
   }
 
   handleClick() {
@@ -32,7 +32,7 @@ class Game extends Component {
   handleResetClick() {
     this.setState({
       score: 0,
-      timeLeft: this.totalTime
+      timeLeft: this.props.totalTime
     });
     this.stopTimer();
   }
@@ -88,6 +88,9 @@ class Game extends Component {
           </button>
           <button type="button" className="btn btn-default btn-lg btn-padded" onClick={this.handleResetClick}>
             Reset
+          </button>
+          <button type="button" className="btn btn-default btn-lg btn-padded" onClick={this.props.onSwitch}>
+            Back to menu
           </button>
         </div>
       </div>
