@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "./App.css";
 import Menu from "./Menu";
 import Game from "./Game";
+import NavBar from "./NavBar";
 
 class App extends Component {
   constructor(props) {
@@ -31,12 +32,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        {this.state.displayMenu ? (
-          <Menu onSwitch={this.switchToGame}/>
-        ) : (
-          <Game onSwitch={this.switchToMenu} totalTime={this.state.totalTime}/>
-        )}
+      <div>
+        <NavBar/>
+        <div className="container">
+          {this.state.displayMenu ? (
+            <Menu onSwitch={this.switchToGame}/>
+          ) : (
+            <Game onSwitch={this.switchToMenu} totalTime={this.state.totalTime}/>
+          )}
+        </div>
       </div>
     );
   }
