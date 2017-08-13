@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   handleClick() {
-    if (!this.timerRunning) {
+    if (this.state.timeLeft > 0) {
       this.startTimer();
     }
 
@@ -29,14 +29,17 @@ class App extends Component {
   }
 
   startTimer() {
-    this.tick();
-    this.timerRunning = true;
-    this.timerId = setInterval(() => this.tick(), 1000);
+    if (!this.timerRunning) {
+      this.timerRunning = true;
+      this.timerId = setInterval(() => this.tick(), 1000);
+    }
   }
 
   stopTimer() {
-    clearInterval(this.timerId);
-    this.timerRunning = false;
+    if (this.timerRunning) {
+      clearInterval(this.timerId);
+      this.timerRunning = false;
+    }
   }
 
   tick() {
@@ -50,9 +53,7 @@ class App extends Component {
   }
 
   componentWillUnmount() {
-    if (this.timerRunning) {
-      this.stopTimer();
-    }
+    this.stopTimer();
   }
 
   render() {
