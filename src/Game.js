@@ -72,7 +72,7 @@ class Game extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
         <div className="row">
           <div className="text-center col-xs-2 col-lg-1">
             <Timer timeLeft={this.state.timeLeft}/>
@@ -82,11 +82,11 @@ class Game extends Component {
           </div>
         </div>
         <div className="row text-center">
-          <button type="button" className="btn btn-primary btn-lg" onClick={this.handleClick}
+          <button type="button" className="btn btn-primary btn-lg btn-padded" onClick={this.handleClick}
                   onKeyDown={Game.handleButtonKeyPress} disabled={this.state.timeLeft <= 0}>
             Click here!
           </button>
-          <button type="button" className="btn btn-default btn-lg" onClick={this.handleResetClick}>
+          <button type="button" className="btn btn-default btn-lg btn-padded" onClick={this.handleResetClick}>
             Reset
           </button>
         </div>
