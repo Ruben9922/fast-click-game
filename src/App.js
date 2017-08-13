@@ -16,6 +16,7 @@ class App extends Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleResetClick = this.handleResetClick.bind(this);
   }
 
   handleClick() {
@@ -26,6 +27,14 @@ class App extends Component {
     this.setState((prevState) => ({
       score: prevState.score + 1
     }));
+  }
+
+  handleResetClick() {
+    this.setState({
+      score: 0,
+      timeLeft: this.totalTime
+    });
+    this.stopTimer();
   }
 
   startTimer() {
@@ -71,6 +80,7 @@ class App extends Component {
           <button type="button" className="btn btn-primary btn-lg" onClick={this.handleClick}
                   disabled={this.state.timeLeft <= 0}>Click here!
           </button>
+          <button type="button" className="btn btn-default btn-lg" onClick={this.handleResetClick}>Reset</button>
         </div>
       </div>
     );
