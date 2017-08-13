@@ -86,7 +86,9 @@ class App extends Component {
                   onKeyDown={App.handleButtonKeyPress} disabled={this.state.timeLeft <= 0}>
             Click here!
           </button>
-          <button type="button" className="btn btn-default btn-lg" onClick={this.handleResetClick}>Reset</button>
+          <button type="button" className="btn btn-default btn-lg" onClick={this.handleResetClick}>
+            Reset
+          </button>
         </div>
       </div>
     );
