@@ -1,96 +1,11 @@
 import React, {Component} from "react";
 import "./App.css";
-import Score from "./Score";
-import Timer from "./Timer";
+import Game from "./Game";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.totalTime = 10;
-    this.timerRunning = false;
-
-    this.state = {
-      score: 0,
-      timeLeft: this.totalTime
-    };
-
-    this.handleClick = this.handleClick.bind(this);
-    this.handleResetClick = this.handleResetClick.bind(this);
-  }
-
-  handleClick() {
-    if (this.state.timeLeft > 0) {
-      this.startTimer();
-    }
-
-    this.setState((prevState) => ({
-      score: prevState.score + 1
-    }));
-  }
-
-  handleResetClick() {
-    this.setState({
-      score: 0,
-      timeLeft: this.totalTime
-    });
-    this.stopTimer();
-  }
-
-  static handleButtonKeyPress(event) {
-    // Prevent increasing score by holding down enter/space key on main button
-    event.preventDefault();
-  }
-
-  startTimer() {
-    if (!this.timerRunning) {
-      this.timerRunning = true;
-      this.timerId = setInterval(() => this.tick(), 1000);
-    }
-  }
-
-  stopTimer() {
-    if (this.timerRunning) {
-      clearInterval(this.timerId);
-      this.timerRunning = false;
-    }
-  }
-
-  tick() {
-    this.setState((prevState) => ({
-      timeLeft: prevState.timeLeft - 1
-    }));
-
-    if (this.state.timeLeft <= 0) {
-      this.stopTimer();
-    }
-  }
-
-  componentWillUnmount() {
-    this.stopTimer();
-  }
-
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="text-center col-xs-2 col-lg-1">
-            <Timer timeLeft={this.state.timeLeft}/>
-          </div>
-          <div className="col-xs-2 col-lg-1 col-xs-push-8 col-lg-push-10">
-            <Score score={this.state.score}/>
-          </div>
-        </div>
-        <div className="row text-center">
-          <button type="button" className="btn btn-primary btn-lg" onClick={this.handleClick}
-                  onKeyDown={App.handleButtonKeyPress} disabled={this.state.timeLeft <= 0}>
-            Click here!
-          </button>
-          <button type="button" className="btn btn-default btn-lg" onClick={this.handleResetClick}>
-            Reset
-          </button>
-        </div>
-      </div>
+      <Game/>
     );
   }
 }
