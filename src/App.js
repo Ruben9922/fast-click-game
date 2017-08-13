@@ -68,7 +68,9 @@ class App extends Component {
           </div>
         </div>
         <div className="row text-center">
-          <button type="button" className="btn btn-primary btn-lg" onClick={this.handleClick}>Click here!</button>
+          <button type="button" className="btn btn-primary btn-lg" onClick={this.handleClick}
+                  disabled={this.state.timeLeft <= 0}>Click here!
+          </button>
         </div>
       </div>
     );
