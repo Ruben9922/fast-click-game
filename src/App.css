@@ -9,6 +9,5 @@ body {
 }
 
 .btn-padded {
-    margin-left: 4px;
-    margin-right: 4px;
+    margin: 4px;
 }

@@ -74,10 +74,10 @@ class Game extends Component {
     return (
       <div>
         <div className="row">
-          <div className="text-center col-xs-2 col-lg-1">
+          <div className="text-center col-xs-3 col-sm-2 col-lg-1">
             <Timer timeLeft={this.state.timeLeft}/>
           </div>
-          <div className="col-xs-2 col-lg-1 col-xs-push-8 col-lg-push-10">
+          <div className="col-xs-3 col-sm-2 col-lg-1 col-xs-push-6 col-sm-push-8 col-lg-push-10">
             <Score score={this.state.score}/>
           </div>
         </div>
@@ -86,10 +86,12 @@ class Game extends Component {
                   onKeyDown={Game.handleButtonKeyPress} disabled={this.state.timeLeft <= 0}>
             Click here!
           </button>
-          <button type="button" className="btn btn-default btn-lg btn-padded" onClick={this.handleResetClick}>
+        </div>
+        <div className="row text-center">
+          <button type="button" className="btn btn-default btn-padded" onClick={this.handleResetClick}>
             Reset
           </button>
-          <button type="button" className="btn btn-default btn-lg btn-padded" onClick={this.props.onSwitch}>
+          <button type="button" className="btn btn-default btn-padded" onClick={this.props.onSwitch}>
             Back to menu
           </button>
         </div>
