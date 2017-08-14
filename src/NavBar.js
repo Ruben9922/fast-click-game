@@ -7,7 +7,7 @@ class NavBar extends Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">Fast Click Game</a>
+            <a href="">Fast Click Game</a>
           </Navbar.Brand>
         </Navbar.Header>
       </Navbar>
