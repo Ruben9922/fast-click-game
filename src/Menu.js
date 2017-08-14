@@ -28,11 +28,11 @@ class Menu extends Component {
       <div>
         <p className="text-center">Choose whether the game should last 10, 20 or 30 seconds:</p>
         <div className="row">
-          <div className="col-sm-6 col-sm-offset-3">
+          <div className="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
             <form className="form-horizontal" onSubmit={this.handleSubmit}>
               <div className="form-group">
-                <label htmlFor="time" className="col-sm-5 control-label">Time (seconds)</label>
-                <div className="col-sm-7">
+                <label htmlFor="time" className="col-xs-5 col-sm-5 control-label">Time (seconds)</label>
+                <div className="col-xs-7 col-sm-7">
                   <select className="form-control" id="time" value={this.state.time} onChange={this.handleChange}>
                     <option value={10}>10</option>
                     <option value={20}>20</option>
@@ -41,7 +41,7 @@ class Menu extends Component {
                 </div>
               </div>
               <div className="form-group">
-                <div className="col-sm-offset-5 col-sm-7">
+                <div className="col-xs-offset-5 col-xs-7 col-sm-offset-5 col-sm-7">
                   <button type="submit" className="btn btn-primary">Start</button>
                 </div>
               </div>
