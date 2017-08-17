@@ -15,5 +15,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "http://rubendougall.co.uk/app/fast-click-game"
+  "homepage": "http://rubendougall.co.uk/apps/fast-click-game"
 }
